@@ -1,0 +1,32 @@
+<apex:page standardController="Account" >
+    <style>
+    .employeeError { color: red; font-weight: strong;}
+    </style>
+
+    <apex:messages />
+
+    <apex:pageMessage summary="このページメッセージは常に表示されます。" severity="warning" strength="3" />
+    <apex:pageMessages />
+
+    <apex:form >
+        <apex:pageBlock title="">
+            従業員数: <apex:inputField value="{!account.NumberOfEmployees}" id="Employee_validation"/>
+            <apex:commandButton action="{!save}" value="Save"/>
+            <apex:message for="Employee_validation" styleClass="employeeError" />  
+        </apex:pageBlock>  
+    </apex:form>  
+
+<!-- For this example to render properly, you must associate the Visualforce page
+with a valid account record in the URL.
+For example, if 001D000000IRt53 is the account ID, the resulting URL should be:
+https://Salesforce_instance/apex/myPage?id=001D000000IRt53
+See the Visualforce Developer's Guide Quick Start Tutorial for more information. -->
+    <apex:relatedList list="Opportunities" />
+
+    <apex:relatedList list="Contacts">
+        <apex:facet name="header">Titles can be overriden with facets</apex:facet>
+    </apex:relatedList>
+
+    <apex:relatedList list="Cases" title="Or you can keep the image, but change the text" />
+
+</apex:page>

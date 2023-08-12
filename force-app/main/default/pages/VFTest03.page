@@ -1,0 +1,157 @@
+<apex:page standardController="Account" recordSetVar="accounts" tabstyle="Account" sidebar="false">
+
+    <!--<apex:stylesheet value="/resources/htdocs/css/basic.css"/>
+    <apex:includeScript value="{!$Resource.jquery331}"/>-->
+
+    <apex:form id="form1">
+
+     <apex:tabPanel switchType="client" selectedTab="name2" id="theTabPanel">
+
+      <apex:tab label="タブ０１" name="name1" id="tab1">
+                <apex:panelBar width="80%">
+
+                    <apex:panelBarItem label="Item 1" id="item1">data 1</apex:panelBarItem>
+
+                    <apex:panelBarItem label="Item 2" id="item2" onenter="alert('Item2クリック')">data 2</apex:panelBarItem>
+
+                    <apex:panelBarItem label="Item 3" id="item3">
+                        <apex:panelGrid columns="3" id="theGrid" bgcolor="yellow" border="1" cellspacing="5" title="PanelGrid1">
+                            <apex:outputText value="111111" id="out1"/>
+                            <apex:outputText value="222222" id="out2"/>
+                            <apex:outputText value="333333" id="out3"/>
+                            <apex:panelGroup id="theGroup">
+                                <apex:outputText value="444444" id="out4"/>
+                                <apex:outputText value="555555" id="out5"/>
+                            </apex:panelGroup>
+                            <apex:outputText value="666666" id="out6"/>
+                        </apex:panelGrid>
+                    </apex:panelBarItem>
+
+                </apex:panelBar>
+
+            </apex:tab>
+
+      <apex:tab label="タブ０２" name="name2" id="tab2" disabled="true">
+                content for tab two
+            </apex:tab>
+
+            <apex:tab label="タブ０３" name="name3" id="tab3">
+
+                <apex:pageBlock title="PageBlock01" mode="detail">
+
+                    <apex:pageBlockButtons >
+
+                        <apex:commandButton action="{!save}" value="保存ボタン"/>
+                        <apex:commandLink action="{!save}" value="保存リンク" id="theCommandLink"/>
+                    </apex:pageBlockButtons>
+
+                    <apex:pageBlockSection title="pageBlockSection01" columns="2">
+
+                        <apex:inputField value="{!account.name}"/>
+                        <apex:inputField value="{!account.site}"/>
+
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockSection title="pageBlockSection02" columns="2">
+
+                        <apex:inputField value="{!account.type}"/>
+                        <apex:inputField value="{!account.accountNumber}"/>
+
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockSection title="pageBlockSection03" columns="1">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Account Name" for="account__name"/>
+                            <apex:inputText value="{!account.name}" id="account__name"/>
+                        </apex:pageBlockSectionItem>
+
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Account Site" for="account__site"/>
+                            <apex:inputText value="{!account.site}" id="account__site"/>
+                        </apex:pageBlockSectionItem>
+
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Account Type" for="account__type"/>
+                            <apex:inputText value="{!account.type}" id="account__type"/>
+                        </apex:pageBlockSectionItem>
+
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Account Number" for="account__number"/>
+                            <apex:inputText value="{!account.accountNumber}" id="account__number"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+
+                </apex:pageBlock>
+
+                <apex:pageBlock title="PageBlock02" mode="edit">
+
+                    Filter:
+                    <apex:selectList value="{! filterId }" size="1">
+                        <apex:selectOptions value="{! listViewOptions }"/>
+                        <apex:actionSupport event="onchange" reRender="contacts_list"/>
+                    </apex:selectList>
+
+                    <apex:pageBlockTable value="{!accounts}" var="item">
+
+                        <apex:column value="{!item.name}"/>
+
+                    </apex:pageBlockTable>
+              Records per page:
+                    <apex:selectList value="{! PageSize }" size="1">
+                        <apex:selectOption itemValue="5" itemLabel="5"/>
+                        <apex:selectOption itemValue="20" itemLabel="20"/>
+                        <apex:actionSupport event="onchange" reRender="contacts_list"/>
+                    </apex:selectList>
+                </apex:pageBlock>
+            </apex:tab>
+
+      <apex:tab label="タブ０４" name="name4" id="tab4">
+                <apex:dataTable value="{!accounts}" var="account" id="theTable" cellPadding="4" border="1">
+                    <apex:facet name="caption">table caption</apex:facet>
+                    <apex:facet name="header">table header</apex:facet>
+                    <apex:facet name="footer">table footer</apex:facet>
+
+                    <apex:column >
+                        <apex:facet name="header">Name</apex:facet>
+                        <apex:facet name="footer">Name footer</apex:facet>
+                        <apex:outputText value="{!account.name}"/>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">Phone</apex:facet>
+                        <apex:facet name="footer">Phone footer</apex:facet>
+                        <apex:outputText value="{!account.Phone}"/>
+                    </apex:column>
+
+               <apex:column >
+                        <apex:facet name="header">Owner</apex:facet>
+                        <apex:facet name="footer">Owner footer</apex:facet>
+                        <apex:outputText value="{!account.owner.name}"/>
+                    </apex:column>
+
+                </apex:dataTable>
+            </apex:tab>
+
+      <apex:tab label="タブ０５" name="name5" id="tab5">
+                <table border="0" >
+                    <tr>
+                        <th>name</th>
+                        <th>Type</th>
+                        <th>owner</th>
+                    </tr>
+                    <apex:repeat var="act" value="{!accounts}">
+                        <tr>
+                            <td>{!act.name}</td>
+                            <td>{!act.Type}</td>
+                            <td>{!act.owner.name}</td>
+                        </tr>
+                    </apex:repeat>
+             </table>
+            </apex:tab>
+
+     </apex:tabPanel>
+
+
+    </apex:form>
+
+</apex:page>

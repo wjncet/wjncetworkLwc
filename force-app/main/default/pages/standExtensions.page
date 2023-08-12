@@ -1,0 +1,12 @@
+<apex:page standardController="Account" extensions="myControllerExtension" showHeader="false"  sidebar="false">
+    <apex:slds />
+    <body class="slds-scope">
+    {!greeting} <p/>
+    <apex:form >
+        <apex:inputField value="{!account.name}"/> <p/>
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:outputLabel value="Checkbox" for="theCheckbox"/>
+<apex:inputCheckbox value="{!inputValue}" id="theCheckbox"/>
+    </apex:form>
+    </body>
+</apex:page>

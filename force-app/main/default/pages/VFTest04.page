@@ -1,0 +1,75 @@
+<apex:page controller="TestController01">
+
+    <apex:sectionHeader title="Title" subtitle="-SubTilte-"/>
+
+    <apex:form >
+
+        <apex:pageBlock mode="edit">
+
+         <apex:pageBlockSection title="Section1" columns="2">
+
+                <apex:selectCheckboxes value="{!checkbox}">
+                    <apex:selectOptions value="{!checkboxItems}"/>
+                </apex:selectCheckboxes>
+                <p/>
+
+                <apex:selectRadio value="{!radio}">
+                    <apex:selectOptions value="{!radioItems}"/>
+                </apex:selectRadio>
+                <p/>
+
+                <apex:selectList value="{!selectlist}" multiselect="true">
+                    <apex:selectOptions value="{!selectlistItems}"/>
+                </apex:selectList>
+                <p/>
+
+                <apex:selectList id="chooseColor" value="{!selectlist2}" size="1">
+                    <apex:selectOption itemValue="red" itemLabel="Red"/>
+                    <apex:selectOption itemValue="white" itemLabel="White"/>
+                    <apex:selectOption itemValue="blue" itemLabel="Blue"/>
+                </apex:selectList>
+
+            </apex:pageBlockSection>
+
+            <apex:outputPanel id="out">
+
+                <apex:pageBlockSection title="Section2" columns="1">
+                    outputField：
+                    <apex:outputField value="{!account01.id}"/>
+                    <apex:outputField value="{!account01.name}"/>
+                    outputLabel：
+                    <apex:outputLabel value="outputLabel-test"/>
+                    outputText：
+                    <apex:outputText value="取引先名-->: {!account01.name}" />
+                    outputLink：
+                    <apex:outputLink value="https://www.salesforce.com" id="theLink">www.salesforce.com</apex:outputLink>
+                    image：
+                    <apex:image id="theImage" value="" width="50" height="50" alt="Description of image here"/>
+                </apex:pageBlockSection>   
+
+            </apex:outputPanel>  
+
+            <apex:pageBlockSection title="Section3" columns="1">
+                inputField：
+                <apex:inputField value="{!account01.name}"/>
+                inputCheckbox：
+                <apex:inputCheckbox value="{!account01.Tradestyle}"/>
+                inputText：
+    <apex:inputText value="{!account01.phone}" id="theTextInput"/>
+                inputTextarea：
+                <apex:inputTextarea value="{!account01.SicDesc}" id="newDesc" />
+                inputSecret：
+                <apex:inputSecret value="{!account01.DunsNumber}" id="theSecretInput"/>
+                inputFile：
+                <apex:inputFile value="{!account01.DunsNumber}" filename="{!account01.DunsNumber}"/>
+                inputHidden：
+                <apex:inputHidden value="{!account01.phone}" id="theHiddenInput"/>
+
+            </apex:pageBlockSection>   
+
+     </apex:pageBlock>
+
+
+    </apex:form>
+
+</apex:page>

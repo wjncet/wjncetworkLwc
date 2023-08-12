@@ -1,0 +1,22 @@
+<apex:page controller="VF_Paging" action="{!init}" readOnly="true">
+    <apex:form >
+        <apex:pageBlock >
+            <!-- ページネーション -->
+            <apex:pageBlockButtons >
+                <apex:outputPanel layout="none" rendered="{!enablePrev}">
+                    <apex:commandLink value="< 前" action="{!prev}" />
+                    <apex:outputLabel value=" | " />
+                </apex:outputPanel>
+                <apex:outputLabel value="{!currentPage}/{!totalPage}" />
+                <apex:outputPanel layout="none" rendered="{!enableNext}">
+                    <apex:outputLabel value=" | " />
+                    <apex:commandLink value="次 >" action="{!next}" />
+                </apex:outputPanel>
+            </apex:pageBlockButtons>
+            <!-- ページサイズ分のリストを表示 -->
+            <apex:pageBlockTable value="{!AccountList}" var="acc">
+                <apex:column value="{!acc.Name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

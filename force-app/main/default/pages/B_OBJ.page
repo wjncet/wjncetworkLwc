@@ -1,0 +1,2 @@
+<apex:page standardController="B_OBJ__c"  showHeader="false" sidebar="false" title="取引先一覧">
+</apex:page>

@@ -1,0 +1,31 @@
+<aura:component >
+    <span id ="sp1">Hello, HTML!</span>
+    
+    <div class="green">{!add(1,2)}{!concat('Hello', 'world')}</div>
+    <table><tr><td class="green">Hello Lightning!</td></tr></table>
+    
+       <div><p id="myName">My Name is Jhon Cena.</p></div> 
+    <p>My Name is roman reigns</p>
+    <p id="myName">My Name is dean ambrose</p>
+    
+    <ui:button press = "{!c.doinit}">
+        <div></div>
+    </ui:button>
+    
+        <aura:attribute name="message" type="String"/>
+    <p>Message of the day: {!v.message}</p>
+    <div>
+        <lightning:button label="You look nice today."
+            onclick="{!c.handleClick}"/>
+        <lightning:button label="Today is going to be a great day!"
+            onclick="{!c.handleClick}"/>
+    </div>
+    
+    
+        <aura:registerEvent name="xxxxxxEvent" type="c:cmpEvent"/>														
+    <p>														
+        <lightning:button label="イベント起動" onclick="{!c.fireEvent}" />														
+        <lightning:button label="動的な追加" onclick="{!c.addEventHandler}" />														
+    </p>														
+
+</aura:component>

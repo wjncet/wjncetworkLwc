@@ -1,0 +1,8 @@
+<aura:component >
+	    <aura:attribute name="str01" type="String" default="111"/>
+    <aura:attribute name="str02" type="String" default="222"/>
+    <c:LtnOtherTest03 strOther01="{#v.str01}" strOther02="{!v.str02}"/>
+    <p>親属性01: {!v.str01}</p>
+    <p>親属性02: {!v.str02}</p>
+    <p><lightning:button label="親属性Update" onclick="{!c.updateStr}"/></p>
+</aura:component>

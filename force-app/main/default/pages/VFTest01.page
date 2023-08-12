@@ -1,0 +1,15 @@
+<apex:page standardController="B_OBJ__c" >
+    <c:VFCmpTest01 />
+    <apex:form >
+        <apex:pageBlock title="取引先責任者編集">
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!B_OBJ__c.count__c}"/>
+                <apex:inputField value="{!B_OBJ__c.count2__c}"/>
+                <apex:inputField value="{!B_OBJ__c.test__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

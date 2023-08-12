@@ -1,0 +1,35 @@
+<template>
+   
+    <c-forapisub inputparm={field0}></c-forapisub>
+    <lightning-card title="track and api" icon-name="custom:custom4">
+     
+        <p>field1 : {field1}</p>
+        <p>field2 : {field2}</p>
+		<div class="slds-var-m-around_medium">
+
+            <lightning-input name="forfield0" label="input field0" onchange={handleChange}></lightning-input>
+
+			<lightning-input name="forfield1" label="input field1" onchange={handleChange}></lightning-input>
+
+			<lightning-input name="forfield2" label="input field2" onchange={handleChange}></lightning-input>
+
+		</div>
+
+	
+
+    <h1>ボタンクリック回数：{btnclickCnt}</h1>
+	<lightning-button variant="neutral" label="ボタン"  onclick={handleClick}
+		class="slds-m-left_x-small"></lightning-button>
+    </lightning-card>
+    <c-forslots>
+		<span slot="slot1">new slot1 text form ForTrackApi</span>
+		<span slot="slot2">new slot2 text form ForTrackApi</span>
+		<span>message form ForTrackApi</span>
+	</c-forslots>
+
+    <template for:each={myarraryFunction} for:item='item'>
+        <li key={item.key}>
+      <span>{item.value}</span>
+      </li>
+    </template>
+</template>

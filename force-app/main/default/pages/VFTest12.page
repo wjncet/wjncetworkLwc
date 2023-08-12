@@ -1,0 +1,15 @@
+<apex:page standardController="Account" extensions="TestController04,TestController05,TestController06">
+    <apex:outputText value="{!greeting}" />
+ <p/>
+    <apex:outputText value="{!extension1}" />
+ <p/>
+    <apex:outputText value="{!extension2}" />
+ <p/>
+    <apex:outputText value="{!extension3}" />
+ <p/>
+    <apex:form >
+        <apex:inputField value="{!account.name}"/> <p/>
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:commandLink action="{!save}" value="Save" id="theCommandLink"/>
+    </apex:form>
+</apex:page>

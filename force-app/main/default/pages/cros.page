@@ -1,0 +1,5 @@
+<apex:page >
+    <!--apex:iframe src="https://www.google.com/intl/ja/gmail/about/" scrolling="true" id="theIframe"/-->
+    <apex:iframe src="https://news.163.com/world/" scrolling="true" id="theIframe1"/>
+    
+</apex:page>

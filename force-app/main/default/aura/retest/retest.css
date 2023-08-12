@@ -1,0 +1,24 @@
+.THIS {
+    background-color:red;
+}
+
+.THIS.green{
+    background-color:green;
+
+}
+
+#sp1.THIS {
+    font-size: 24px;
+}
+
+.THIS#myName {
+    color: White;
+    background-color:black;
+    font-weight: bold;
+}
+
+.THIS #myName1 {
+    color: White;
+    background-color:black;
+    font-weight: bold;
+}

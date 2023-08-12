@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="strOther01" type="String" />
+    <aura:attribute name="strOther02" type="String" />
+    <p>子属性01: {!v.strOther01}</p>
+    <p>子属性02: {!v.strOther02}</p>
+    <p><lightning:button label="子属性Update" onclick="{!c.updateStr}"/></p>
+</aura:component>

@@ -1,0 +1,48 @@
+<apex:page standardController="Account" tabstyle="Account">
+Today's date is: {!TODAY()}
+    <apex:pageBlock title="" mode="edit">
+
+        <apex:pageBlockSection title="グローバル変数" columns="2">
+
+            <apex:outputLabel value="$Action："/>
+            <apex:outputLink value="{!URLFOR($Action.Account.New)}">取引先新規</apex:outputLink>
+
+            <apex:outputLabel value="$Api.Session_ID："/>
+   <apex:outputText value="{!$Api.Session_ID}"/>
+
+            <apex:outputLabel value="$CurrentPage："/>
+            <apex:outputText value="{!$CurrentPage.Name}-{!$CurrentPage.URL}"/>
+
+            <apex:outputLabel value="$Label："/>
+            <apex:outputText value="{!$Label.customerLabel01}"/>         
+
+            <apex:outputLabel value="$Label.Site："/>
+            <apex:outputText value="{!$Label.site.click_forget_password}"/>            
+
+            <apex:outputLabel value="$ObjectType："/>
+            <apex:outputText value="{!$ObjectType.Account.Fields.Name.Label}-{!$ObjectType.Account.Fields.Name.Name}-{!$ObjectType.Account.Fields.Name.type}"/>
+
+            <apex:outputLabel value="$Organization："/>
+            <apex:outputText value="{!$Organization.Id}-{!$Organization.Name}-{!$Organization.Phone}"/>
+
+            <apex:outputLabel value="$Page："/>
+            <apex:outputLink value="{!$Page.VFTest01}">VFTest01</apex:outputLink>
+
+            <apex:outputLabel value="$Profile："/>
+            <apex:outputText value="{!$Profile.Id}-{!$Profile.Name}"/>
+
+
+            <apex:outputLabel value="$Site："/>
+            <apex:outputText value="{!NOW() - $System.OriginDateTime}"/>
+
+            <apex:outputLabel value="$User："/>
+            <apex:outputText value="{!$User.Id}-{!$User.CompanyName}-{!$User.Alias}-{!$User.IsActive}"/>
+
+            <apex:outputLabel value="$UserRole："/>
+            <apex:outputText value="{!$UserRole.LastModifiedById}-{!$UserRole.Name}-{!$UserRole.DeveloperName}"/>
+
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+
+</apex:page>

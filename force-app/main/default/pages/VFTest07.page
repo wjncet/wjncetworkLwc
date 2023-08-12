@@ -1,0 +1,8 @@
+<apex:page contentType="text/xml;charset=UTF-8#{!URLENCODE(fileName)}.csv" controller="TestController02" readOnly="true" action="{!init}">
+    <apex:outputText value="{!header}"/>
+    <apex:repeat value="{!receivedDataList}" var="receivedData">
+     <apex:repeat value="{!receivedData}" var="receivedObj">
+      <apex:outputText value="{!receivedObj}" />
+     </apex:repeat>
+    </apex:repeat>
+</apex:page>

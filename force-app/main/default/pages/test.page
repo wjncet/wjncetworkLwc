@@ -1,0 +1,2 @@
+<apex:page standardController="A_OBJ__c" extensions="myControllerExtension">
+</apex:page>
